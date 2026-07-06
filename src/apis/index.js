@@ -1,5 +1,6 @@
 import Promise from 'bluebird';
 import axios from 'axios';
+import { mockCategories, mockAlgorithms } from './mockData';
 
 axios.interceptors.response.use(response => response.data);
 
@@ -48,8 +49,15 @@ const PATCH = URL => {
 };
 
 const AlgorithmApi = {
-  getCategories: GET('/algorithms'),
-  getAlgorithm: GET('/algorithms/:categoryKey/:algorithmKey'),
+  getCategories: () => Promise.resolve({ categories: mockCategories }),
+  getAlgorithm: (categoryKey, algorithmKey) => {
+    const key = `${categoryKey}/${algorithmKey}`;
+    const algo = mockAlgorithms[key];
+    if (algo) {
+      return Promise.resolve({ algorithm: algo });
+    }
+    return Promise.reject(new Error('Algorithm Not Found'));
+  },
 };
 
 const VisualizationApi = {

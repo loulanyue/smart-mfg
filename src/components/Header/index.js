@@ -136,15 +136,15 @@ class Header extends BaseComponent {
           </div>
           <div className={styles.section}>
             <Button icon={permitted ? faSave : faCodeBranch} primary disabled={permitted && saved}
-                    onClick={() => this.saveGist()}>{permitted ? 'Save' : 'Fork'}</Button>
+                    onClick={() => this.saveGist()}>{permitted ? '保存配置' : '克隆方案'}</Button>
             {
               permitted &&
-              <Button icon={faTrashAlt} primary onClick={() => this.deleteGist()} confirmNeeded>Delete</Button>
+              <Button icon={faTrashAlt} primary onClick={() => this.deleteGist()} confirmNeeded>删除</Button>
             }
             <Button icon={faFacebook} primary
-                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}>Share</Button>
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}>分享</Button>
             <Button icon={faExpandArrowsAlt} primary
-                    onClick={() => this.handleClickFullScreen()}>Fullscreen</Button>
+                    onClick={() => this.handleClickFullScreen()}>全屏</Button>
           </div>
         </div>
         <div className={styles.row}>
@@ -154,11 +154,11 @@ class Header extends BaseComponent {
                 <Button className={styles.btn_dropdown} icon={user.avatar_url}>
                   {user.login}
                   <div className={styles.dropdown}>
-                    <ListItem label="Sign Out" href="/api/auth/destroy" rel="opener"/>
+                    <ListItem label="安全退出" href="/api/auth/destroy" rel="opener"/>
                   </div>
                 </Button> :
                 <Button icon={faGithub} primary href="/api/auth/request" rel="opener">
-                  <Ellipsis>Sign In</Ellipsis>
+                  <Ellipsis>系统登录</Ellipsis>
                 </Button>
             }
             <Button className={styles.btn_dropdown} icon={faStar}>

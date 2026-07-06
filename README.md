@@ -1,54 +1,35 @@
-# Algorithm Visualizer
+# 智慧烟草生产制造平台 (STMP)
 
-## Introduction
-Welcome to Algorithm Visualizer, an interactive online platform designed to bring algorithms to life through visualization. Whether you're a student, teacher, or professional, our platform provides an engaging way to explore and understand various algorithms.
+> **智慧烟草生产制造平台 (Smart Tobacco Manufacturing Platform)** 是一款集工艺配方设计、生产调度排产、车间设备自适应监控、立体物流寻路于一体的工业 MES/ERP 可视化仿真平台。
 
-[![GitHub contributors](https://img.shields.io/github/contributors/algorithm-visualizer/algorithm-visualizer.svg?style=flat-square)](https://github.com/algorithm-visualizer/algorithm-visualizer/graphs/contributors)
-[![GitHub license](https://img.shields.io/github/license/algorithm-visualizer/algorithm-visualizer.svg?style=flat-square)](https://github.com/algorithm-visualizer/algorithm-visualizer/blob/master/LICENSE)
+本项目在设计上完美继承了 Maticsoft `CeramicProject` 的多模块系统（采购、仓库、工单、设备、质检），并将其核心控制逻辑与工艺参数使用可视化追踪技术（Tracers）进行生动演示，致力于实现烟草生产的自动化、数字化和精细化控制。
 
-## Languages and Frameworks Used
-[![Languages](https://skillicons.dev/icons?i=html,css,js,react,nodejs,redux)](https://skillicons.dev)
+---
 
+## 🏭 工艺模块与可视化场景 (侧边栏菜单)
 
-## Key Features
-<ul> 
-<li>
+请通过左侧导航栏选择具体的工艺场景进行模拟与控制算法的演示：
 
-### Visualize algorithms from code:
-Algorithm Visualizer allows you to witness algorithms in action by visualizing code written in various programming languages. This visual approach facilitates a better understanding of algorithmic behavior..</li>
-<li>
+### 1. 📅 生产计划与调度管理 (MES/ERP)
+- **工单优先级动态排产调度**: 模拟从核心计划库读取订单，根据交期与客户星级计算优先级，对计划单进行**优先级排序**并动态指派生产线资源。
 
-### Learn about Algorithms:
-Explore our collection of tutorials, articles, and videos that serve as valuable resources for learning about algorithms.
-</li>
-</ul>
+### 2. 🧪 烟草配方与BOM管理
+- **烟叶配方叶组投料比例计算**: 制丝工段的核心加料与混丝配比计算。在投料前，系统会自动校验各项原料在库存表中的结存与安全限额。
 
-## algorithms
-In this repository, you'll find visualizations of algorithms showcased in the website's side menu. Contributions here directly impact the educational content available on the platform.   https://github.com/algorithm-visualizer/algorithms</li>
-</ul>
+### 3. 🚚 智能仓储与物位寻路
+- **立体库辅料AGV小车寻路**: 车间辅料低于报警水位时，调度立体库 AGV 补料。采用 **Dijkstra 最短路径算法** 规划避障行驶最优路线。
 
+### 4. 📈 车间现场监控与自适应控制
+- **高速卷包烟支克重在线检测与SPC控制**: 高速卷制设备中，在线红外质检仪以毫秒级对烟支克重进行闭环扫描。包含超限物理气动剔除和自适应喂料调节闭环控制。
 
-## tracers
-Explore the various visualization libraries in different programming languages. These libraries extract visualization commands from code.
-https://github.com/search?q=topic%3Avisualization-library+org%3Aalgorithm-visualizer&type=Repositories</li>
-</ul>
+---
 
-## Live Demo
-Learning an algorithm gets much easier with visualizing it. Don't get what we mean? Check it out:
+## 🛠 本地二次开发与算法设计
 
-[**algorithm-visualizer.org**![Screenshot](https://raw.githubusercontent.com/algorithm-visualizer/algorithm-visualizer/master/branding/screenshot.png)](https://algorithm-visualizer.org/)
+你可以直接在右侧的 **Code Editor** 中修改和设计你自己的算法。平台提供了丰富的可视化跟踪组件（Tracers）：
+- **LogTracer**: 用于记录车间现场控制日志。
+- **Array1DTracer / Array2DTracer**: 模拟一维工单队列、二维生产线或仓库货架状态。
+- **ChartTracer**: 用于绘制克重在线监测曲线、原料用量占比等数据图表。
+- **GraphTracer**: 用于构建厂区拓扑路网及物流搬运路线。
 
-## Contributing
-
-Our project consists of multiple repositories, each playing a crucial role in the Algorithm Visualizer ecosystem. If you're interested in contributing, check out the guidelines for the specific repository:
-
-
-- [**`algorithm-visualizer`**](https://github.com/algorithm-visualizer/algorithm-visualizer) is a web app written in React. It contains UI components and interprets commands into visualizations. Check out [the contributing guidelines](CONTRIBUTING.md).
-
-- [**`server`**](https://github.com/algorithm-visualizer/server) serves the web app and provides APIs that it needs on the fly. (e.g., GitHub sign in, compiling/running code, etc.)
-
-- [**`algorithms`**](https://github.com/algorithm-visualizer/algorithms) contains visualizations of algorithms shown on the side menu of the website.
-
-- [**`tracers.*`**](https://github.com/search?q=topic%3Avisualization-library+org%3Aalgorithm-visualizer&type=Repositories) are visualization libraries written in each supported language. They extract visualizing commands from code.
-
-Ready to contribute? Explore the repositories and become part of the Algorithm Visualizer community!
+点击上方的运行播放器控制键，即可观赏控制算法的动态全景流转。

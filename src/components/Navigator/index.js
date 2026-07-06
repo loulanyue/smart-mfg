@@ -111,9 +111,9 @@ class Navigator extends React.Component {
           }
         </div>
         <div className={styles.footer}>
-          <ExpandableListItem icon={faCode} label="Scratch Paper" onClick={() => this.toggleScratchPaper()}
+          <ExpandableListItem icon={faCode} label="自定义草稿方案" onClick={() => this.toggleScratchPaper()}
                               opened={scratchPaperOpened}>
-            <ListItem indent label="New ..." to="/scratch-paper/new"/>
+            <ListItem indent label="新建空白方案..." to="/scratch-paper/new"/>
             {
               scratchPapers.map(scratchPaper => (
                 <ListItem indent key={scratchPaper.key} selected={scratchPaper.key === gistId}
@@ -121,9 +121,9 @@ class Navigator extends React.Component {
               ))
             }
           </ExpandableListItem>
-          <ListItem icon={faBook} label="API Reference"
+          <ListItem icon={faBook} label="API 使用文档"
                     href="https://github.com/algorithm-visualizer/algorithm-visualizer/wiki"/>
-          <ListItem icon={faGithub} label="Fork me on GitHub"
+          <ListItem icon={faGithub} label="GitHub 源码仓库"
                     href="https://github.com/algorithm-visualizer/algorithm-visualizer"/>
         </div>
       </nav>

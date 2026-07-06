@@ -36,9 +36,9 @@ export const actions = {
   renameFile,
 };
 
-const homeTitles = ['Algorithm Visualizer'];
+const homeTitles = ['智慧烟草生产制造平台 (STMP)'];
 const homeFiles = [ROOT_README_MD];
-const homeDescription = 'Algorithm Visualizer is an interactive online platform that visualizes algorithms from code.';
+const homeDescription = '智慧烟草生产制造平台 (Smart Tobacco Manufacturing Platform) 是一款参考 CeramicProject 业务架构设计的烟草 MES/ERP 生产数据与控制算法可视化平台。';
 const defaultState = {
   algorithm: {
     categoryKey: 'algorithm-visualizer',
